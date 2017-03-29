@@ -1,12 +1,13 @@
 {
   "devDependencies": {
-    "http-server": "^0.9.0",
     "rollup": "^0.41.6",
     "rollup-plugin-svelte": "^1.6.1",
-    "rollup-watch": "^3.2.2"
+    "rollup-watch": "^3.2.2",
+    "serve": "^5.1.2"
   },
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w & http-server"
+    "start": "serve public",
+    "dev": "rollup -c -w & serve public"
   }
 }

@@ -121,10 +121,22 @@ function renderMainFragment ( root, component ) {
 	var text$1 = createText( last_text$1 );
 	appendNode( text$1, h1 );
 	appendNode( createText( "!" ), h1 );
+	var text$3 = createText( "\n" );
+	
+	var p = createElement( 'p' );
+	
+	appendNode( createText( "Open the console, and type " ), p );
+	
+	var code = createElement( 'code' );
+	
+	appendNode( code, p );
+	appendNode( createText( "wrapper.name = 'friend'" ), code );
 
 	return {
 		mount: function ( target, anchor ) {
 			insertNode( h1, target, anchor );
+			insertNode( text$3, target, anchor );
+			insertNode( p, target, anchor );
 		},
 		
 		update: function ( changed, root ) {
@@ -138,6 +150,8 @@ function renderMainFragment ( root, component ) {
 		teardown: function ( detach ) {
 			if ( detach ) {
 				detachNode( h1 );
+				detachNode( text$3 );
+				detachNode( p );
 			}
 		}
 	};
